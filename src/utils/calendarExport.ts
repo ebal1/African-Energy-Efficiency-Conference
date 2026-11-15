@@ -1,4 +1,5 @@
 import { ConferenceBrief, ConferenceSession } from '../data/conferenceData';
+import { ConferenceDocument } from '../data/documentationData';
 
 function formatICSDate(dateISO: string, timeHHMM: string): string {
   const cleanDate = dateISO.replace(/-/g, '');
@@ -71,4 +72,42 @@ export function downloadBriefSummary(brief: ConferenceBrief) {
   ].join('\n');
 
   triggerTextDownload(`${brief.code}.txt`, lines, 'text/plain;charset=utf-8');
+}
+
+export function downloadFullDocument(doc: ConferenceDocument) {
+  const sectionsMarkdown = doc.sections
+    .map((sec) => {
+      const paras = sec.paragraphs.join('\n\n');
+      const bullets = sec.bullets?.length
+        ? '\n\n' + sec.bullets.map((b) => `- ${b}`).join('\n')
+        : '';
+      return `## ${sec.heading}\n\n${paras}${bullets}`;
+    })
+    .join('\n\n');
+
+  const markdown = [
+    `# ${doc.title}`,
+    '',
+    `- **Reference Code:** ${doc.code}`,
+    `- **Category:** ${doc.category}`,
+    `- **Authoring Body:** ${doc.authoringBody}`,
+    `- **Version:** ${doc.version} (${doc.publishedDate})`,
+    `- **Extent:** ${doc.pages}`,
+    `- **Official Portal:** https://afeea.au-afrec.org/`,
+    '',
+    '## Executive Summary',
+    '',
+    doc.summary,
+    '',
+    '## Key Takeaways',
+    '',
+    ...doc.keyTakeaways.map((k, idx) => `${idx + 1}. ${k}`),
+    '',
+    sectionsMarkdown,
+    '',
+    '---',
+    'African Energy Commission (AFREC) · African Union Headquarters, Addis Ababa'
+  ].join('\n');
+
+  triggerTextDownload(`${doc.code}.md`, markdown, 'text/markdown;charset=utf-8');
 }

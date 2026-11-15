@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   { label: 'Sectors', href: '#sectors' },
   { label: 'Agenda', href: '#agenda' },
   { label: 'Speakers', href: '#speakers' },
-  { label: 'Partners', href: '#partners' }
+  { label: 'Documents', href: '#documents' }
 ];
 
 export function Navbar({ onRegisterClick }: NavbarProps) {

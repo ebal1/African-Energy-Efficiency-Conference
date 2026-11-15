@@ -39,6 +39,9 @@ export function Footer() {
             <a href="#partners" className="hover:text-[#14532D] transition-colors">
               Partners
             </a>
+            <a href="#documents" className="hover:text-[#14532D] transition-colors">
+              Documents
+            </a>
             <a
               href={OFFICIAL_PORTAL_URL}
               target="_blank"
