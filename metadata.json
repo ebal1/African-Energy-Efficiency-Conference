@@ -1,0 +1,6 @@
+{
+  "name": "AfEEA — African Energy Efficiency Conference",
+  "description": "Official conference portal for the African Energy Efficiency Alliance (AfEEA) and African Energy Commission (AFREC), advancing Africa's energy efficiency agenda through strategic partnerships.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

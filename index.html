@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AfEEA — African Energy Efficiency Conference | AFREC · African Union</title>
+    <meta
+      name="description"
+      content="Official conference portal for the African Energy Efficiency Alliance (AfEEA), convened by the African Energy Commission (AFREC) at the African Union Headquarters in Addis Ababa."
+    />
+    <meta property="og:title" content="AfEEA — African Energy Efficiency Conference | AFREC" />
+    <meta
+      property="og:description"
+      content="Advancing Africa's Energy Efficiency Agenda Through Strategic Partnerships. Programme, speakers, technical trainings, and delegate registration."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var desc = Object.getOwnPropertyDescriptor(window, 'fetch');
+          if (desc && typeof desc.get === 'function' && !desc.set && desc.configurable) {
+            var origGet = desc.get;
+            var customFetch = null;
+            Object.defineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: desc.enumerable,
+              get: function () {
+                return customFetch || origGet.call(window);
+              },
+              set: function (fn) {
+                if (typeof fn === 'function') {
+                  customFetch = fn;
+                }
+              }
+            });
+          }
+        } catch (_e) {
+          // Ignore if environment marks window.fetch non-configurable
+        }
+
+        window.addEventListener(
+          'error',
+          function (event) {
+            var src = (event && (event.filename || '')) || '';
+            if (src.indexOf('chrome-extension://') === 0 || src.indexOf('moz-extension://') === 0) {
+              event.preventDefault();
+            }
+          },
+          true
+        );
+      })();
+    </script>
+  </head>
+  <body class="bg-[#FAFBF9] text-[#141A15] antialiased selection:bg-[#14532D] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
